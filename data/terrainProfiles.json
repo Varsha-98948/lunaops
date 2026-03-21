@@ -1,0 +1,17 @@
+{
+  "rocky": {
+    "traction": "medium",
+    "stability": "high",
+    "hazardLevel": "medium"
+  },
+  "crater": {
+    "traction": "low",
+    "stability": "low",
+    "hazardLevel": "high"
+  },
+  "flat": {
+    "traction": "high",
+    "stability": "high",
+    "hazardLevel": "low"
+  }
+}

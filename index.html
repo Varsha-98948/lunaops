@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LunaOps | Lunar Mission Control</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="mission-header">
+    <div>
+      <p class="eyebrow">Lunar Surface Operations</p>
+      <h1>LunaOps Mission Control</h1>
+    </div>
+    <p id="mission-time" class="mission-time">MET 00:00:00</p>
+  </header>
+
+  <main class="dashboard">
+    <aside class="panel status-panel" aria-label="Robot Status">
+      <h2>Status Panel</h2>
+      <section class="panel-section" aria-label="Mission Status">
+        <p class="section-label">Mission Status</p>
+        <div class="stat-list">
+          <div class="stat-row">
+            <span>Position</span>
+            <strong id="position">x 0.00 | y 0.00 | z 0.00</strong>
+          </div>
+          <div class="stat-row">
+            <span>Status</span>
+            <strong id="robot-status">IDLE</strong>
+          </div>
+          <div class="stat-row">
+            <span>Mode</span>
+            <strong id="mode">MANUAL</strong>
+          </div>
+          <div class="stat-row">
+            <span>Target</span>
+            <strong id="target-readout">No target</strong>
+          </div>
+          <div class="stat-row">
+            <span>Operation</span>
+            <strong id="active-task">STANDBY</strong>
+          </div>
+          <div class="stat-row">
+            <span>Alert</span>
+            <strong id="system-warning">Nominal</strong>
+          </div>
+        </div>
+      </section>
+      <section class="panel-section timeline-section" aria-label="Mission Timeline">
+        <p class="section-label">Mission Timeline</p>
+        <div id="timeline" class="timeline-list"></div>
+      </section>
+    </aside>
+
+    <section class="panel viewport-panel" aria-label="Robot First Person View">
+      <div class="panel-head">
+        <h2>Rover POV</h2>
+      </div>
+      <div id="three-container">
+        <div class="scan-overlay"></div>
+        <div class="viewport-reticle" aria-hidden="true"></div>
+        <div id="mission-alert" class="mission-alert" aria-live="polite"></div>
+        <div class="minimap-frame" aria-hidden="true">
+          <span>MINIMAP</span>
+          <strong id="minimap-distance" class="minimap-distance">Distance: --</strong>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel telemetry-panel" aria-label="Telemetry">
+      <h2>Telemetry Panel</h2>
+      <div class="telemetry-card">
+        <div class="telemetry-head">
+          <span>Battery Reserve</span>
+          <strong id="battery-readout">100.0%</strong>
+        </div>
+        <canvas id="batteryChart" width="320" height="140"></canvas>
+      </div>
+      <div class="telemetry-card">
+        <div class="telemetry-head">
+          <span>Thermal Envelope</span>
+          <strong id="temperature-readout">-50.0 C</strong>
+        </div>
+        <canvas id="temperatureChart" width="320" height="140"></canvas>
+      </div>
+      <div class="telemetry-card">
+        <div class="telemetry-head">
+          <span>Radiation Field</span>
+          <strong id="radiation-readout">120.0 uSv/h</strong>
+        </div>
+        <canvas id="radiationChart" width="320" height="140"></canvas>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="control-bar">
+    <section class="control-group control-group--joystick" aria-label="Manual Drive Controls">
+      <p class="control-label">Control Panel</p>
+      <div class="joystick joystick-shell" aria-label="Directional Controls">
+        <div class="joystick-pad">
+          <button id="move-forward-button" class="joystick-btn joystick-up" type="button" aria-label="Move Forward">Up</button>
+          <button id="move-left-button" class="joystick-btn joystick-left" type="button" aria-label="Move Left">Left</button>
+          <div class="joystick-core" aria-hidden="true">NAV</div>
+          <button id="move-right-button" class="joystick-btn joystick-right" type="button" aria-label="Move Right">Right</button>
+          <button id="move-backward-button" class="joystick-btn joystick-down" type="button" aria-label="Move Backward">Down</button>
+        </div>
+      </div>
+    </section>
+    <section class="control-group control-group--targets" aria-label="Mission Targets">
+      <p class="control-label">Mission Targets</p>
+      <div class="mission-buttons">
+        <button id="inspect-button" type="button">Inspect Module</button>
+        <button id="maintenance-button" type="button">Maintenance Sweep</button>
+        <button id="research-button" type="button">Research Mode</button>
+      </div>
+    </section>
+    <section class="control-group control-group--actions" aria-label="Navigation Actions">
+      <p class="control-label">Navigation</p>
+      <button id="auto-navigate-button" type="button">Auto Navigate: OFF</button>
+    </section>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

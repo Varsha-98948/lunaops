@@ -1,0 +1,9 @@
+{
+  "gravity": 1.62,
+  "temperatureRange": {
+    "minC": -173,
+    "maxC": 127
+  },
+  "radiationLevel": "Moderate",
+  "terrainType": "rocky"
+}
