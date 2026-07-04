@@ -24,3 +24,6 @@ The goal of this project is to explore how autonomous systems behave in complex 
 
 ## 🔗 Repository
 https://github.com/Varsha-98948/lunaops
+
+## Version
+LunaOps v1.0
